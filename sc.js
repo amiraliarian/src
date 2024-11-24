@@ -54,6 +54,9 @@ function itemClick(evt) {
                 wrongUnFreeze()
             }, 1000)
         }
+        if(arrCorrect.length===16){
+             
+        }
     }
 }
 function wrongFreeze() {
