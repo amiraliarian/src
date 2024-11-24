@@ -1,31 +1,20 @@
 const items = document.querySelectorAll(".items");
 const score = document.querySelector(".absolute")
-
 let arr = []
 let arrCorrect = []
 let count = 0
-
 console.log(arr)
 function shuffle() {
-
     let arrShuffle = []
     let arrTest = []
-
-
-
     for (let i = 0; i < 16; i++) {
         arrShuffle.push(Math.floor(Math.random() * 16))
-
         arrTest.push(items[arrShuffle[i]])
-        //     items.slice
-        //    items.push(arrTest[i]);
     }
-
 }
 shuffle()
 function itemClick(evt) {
     console.log(evt);
-    // debugger
     if (arr.length === 0) {
         evt.target.classList.add("disabled")
         evt.target.classList.remove("hide")
@@ -42,28 +31,14 @@ function itemClick(evt) {
             arr.length = 0
         } else {
             count++
-
             wrongFreeze()
-
-
-            // debugger
             setTimeout(function () {
                 arr[0].classList.add("hide");
                 arr[1].classList.add("hide");
-
                 arr.length = 0
-
                 wrongUnFreeze()
-
-
-
             }, 1000)
-
-
         }
-
-
-
     }
 }
 function wrongFreeze() {
@@ -81,7 +56,6 @@ function wrongUnFreeze() {
 
     }
 }
-
 function startFreeze() {
     for (const item of items) {
         item.classList.add("disabled")
@@ -96,16 +70,12 @@ function endStartFreeze() {
     }
 }
 setTimeout(endStartFreeze, 3000)
-
 function hideAll() {
     for (const item of items) {
         item.classList.add("hide")
     }
 }
-
-
 setTimeout(hideAll, 3000)
-
 for (const item of items) {
     item.addEventListener("click", itemClick)
 
