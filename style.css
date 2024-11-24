@@ -1,9 +1,14 @@
+body{
+    background:url(img/1.png) ;
+}
+
 .fab {
     font-size: 3rem;
 
 }
 .items {
     aspect-ratio: 1/1;
+    display: flex;
 }
 .hide>i {
     display: none !important;
@@ -15,4 +20,5 @@
 }
 .border {
     border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.50) !important;
 }

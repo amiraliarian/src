@@ -1,3 +1,18 @@
+const imagesAddress = ['img/1.png',
+    'img/3.jpeg',
+    
+]
+
+
+function imgrandom() {
+    const rndImage = Math.floor(Math.random() * imagesAddress.length)
+
+
+    document.body.style = `background-image: url(${imagesAddress[rndImage]}) ; background-size :cover ; background-repeat :no-repeat ; `
+
+
+};
+imgrandom()
 const items = document.querySelectorAll(".items");
 const score = document.querySelector(".absolute")
 let arr = []
