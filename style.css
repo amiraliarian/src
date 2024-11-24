@@ -1,18 +1,22 @@
 .fab {
     font-size: 3rem;
-    
+
 }
+
 .items {
     aspect-ratio: 1/1;
 }
-.hide > i {
-    display: none !important; 
+
+.hide>i {
+    display: none !important;
 
 }
-.disabled{
+
+.disabled {
     pointer-events: none;
 
 }
-.border{
+
+.border {
     border: 1px solid black;
 }
