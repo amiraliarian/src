@@ -2,110 +2,111 @@ const items = document.querySelectorAll(".items");
 const score = document.querySelector(".absolute")
 
 let arr = []
-let arrCorrect=[]
-let count =0
+let arrCorrect = []
+let count = 0
 
 console.log(arr)
-function shuffle(){
-    
-    let arrShuffle=[]
-    let arrTest=[]
-    
+function shuffle() {
 
-    
-   for(let i =0; i<16;i++){
-    arrShuffle.push(Math.floor(Math.random()*16))
-   
-   arrTest.push(items[arrShuffle[i]])
-//     items.slice
-//    items.push(arrTest[i]);
-   }
+    let arrShuffle = []
+    let arrTest = []
+
+
+
+    for (let i = 0; i < 16; i++) {
+        arrShuffle.push(Math.floor(Math.random() * 16))
+
+        arrTest.push(items[arrShuffle[i]])
+        //     items.slice
+        //    items.push(arrTest[i]);
+    }
 
 }
 shuffle()
-function itemClick(evt){
+function itemClick(evt) {
     console.log(evt);
     // debugger
-    if(arr.length===0){
+    if (arr.length === 0) {
         evt.target.classList.add("disabled")
         evt.target.classList.remove("hide")
         arr.push(evt.target);
-    }else{
+    } else {
         evt.target.classList.add("disabled")
         evt.target.classList.remove("hide")
         arr.push(evt.target);
-        if(arr[0].innerHTML===arr[1].innerHTML){
+        if (arr[0].innerHTML === arr[1].innerHTML) {
             evt.target.classList.remove("hide")
             evt.target.classList.add("disabled")
             arr.push(evt.target);
-            arrCorrect.push(arr[0],arr[1])
-            arr.length=0
-        }else {
+            arrCorrect.push(arr[0], arr[1])
+            arr.length = 0
+        } else {
             count++
 
             wrongFreeze()
-            
-            
+
+
             // debugger
-            setTimeout(function(){
+            setTimeout(function () {
                 arr[0].classList.add("hide");
                 arr[1].classList.add("hide");
-                
-                arr.length=0
+
+                arr.length = 0
 
                 wrongUnFreeze()
-                
-                
-                
-            },1000)
-            
-                
-            }
 
-            
-            
+
+
+            }, 1000)
+
+
+        }
+
+
+
     }
 }
-function wrongFreeze(){
+function wrongFreeze() {
     for (const item of items) {
         item.classList.add("disabled");
-        
+
     }
 }
-function wrongUnFreeze(){
+function wrongUnFreeze() {
     for (const item of items) {
         item.classList.remove("disabled");
         for (const inn of arrCorrect) {
-            inn.classList.add("disabled")}
-        
+            inn.classList.add("disabled")
+        }
+
     }
 }
 
-function startFreeze(){
+function startFreeze() {
     for (const item of items) {
         item.classList.add("disabled")
-        
+
     }
 }
 startFreeze()
-function endStartFreeze(){
+function endStartFreeze() {
     for (const item of items) {
         item.classList.remove("disabled")
-        
+
     }
 }
-setTimeout(endStartFreeze,3000)
+setTimeout(endStartFreeze, 3000)
 
-function hideAll(){
+function hideAll() {
     for (const item of items) {
         item.classList.add("hide")
     }
 }
 
 
-setTimeout(hideAll,3000)
+setTimeout(hideAll, 3000)
 
 for (const item of items) {
-    item.addEventListener("click",itemClick)
-    
+    item.addEventListener("click", itemClick)
+
 }
