@@ -1,24 +1,7 @@
-const imagesAddress = [ 'img/animation.gif','img/animation2.gif',
-    
+
+const imagesAddress = ['img/animation.gif', 'img/animation2.gif',
+
 ]
-
-const boxes = [...document.querySelectorAll(".box-item")]
-const all = document.getElementById("all")
-for(let i = 0 < boxes.length; i++){
-    const rnd = Math.floor(Math.random() * boxes.length);
-    const temp = boxes[rnd]
-    boxes[rnd] = boxes[i]
-
-    boxes[i] = temp;
-}
-
-all.innerHTML = ""
- for (const box of boxes){
-    all.innerHTML += box.outerHTML;
-
- }
-
- boxes = document.querySelectorAll(".box-item")
 
 function imgrandom() {
     const rndImage = Math.floor(Math.random() * imagesAddress.length)
@@ -51,15 +34,14 @@ function shuffle() {
         arrShuffle.push(Math.floor(Math.random() * 16))
 
         arrTest.push(items[arrShuffle[i]])
-        //     items.slice
-        //    items.push(arrTest[i]);
+
     }
 
 }
 shuffle()
 function itemClick(evt) {
     console.log(evt);
-    // debugger
+
     if (arr.length === 0) {
         evt.target.classList.add("disabled")
         evt.target.classList.remove("hide")
@@ -102,7 +84,9 @@ function itemClick(evt) {
 
 
     if (arrCorrect.length === 16) {
-        alert("you win")
+        setTimeout(() => (
+            alert("you win")
+        ),10 )
     }
     if (count === 3) {
         alert("you lose")
