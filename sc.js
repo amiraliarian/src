@@ -2,6 +2,23 @@ const imagesAddress = [ 'img/animation.gif','img/animation2.gif',
     
 ]
 
+const boxes = [...document.querySelectorAll(".box-item")]
+const all = document.getElementById("all")
+for(let i = 0 < boxes.length; i++){
+    const rnd = Math.floor(Math.random() * boxes.length);
+    const temp = boxes[rnd]
+    boxes[rnd] = boxes[i]
+
+    boxes[i] = temp;
+}
+
+all.innerHTML = ""
+ for (const box of boxes){
+    all.innerHTML += box.outerHTML;
+
+ }
+
+ boxes = document.querySelectorAll(".box-item")
 
 function imgrandom() {
     const rndImage = Math.floor(Math.random() * imagesAddress.length)
